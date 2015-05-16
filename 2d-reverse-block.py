@@ -8,9 +8,9 @@ import os.path
 
 def bitreverse(n, l):
   r = 0
-  for i in range(l):
-    if n&(1<<(l-i-1)) != 0:
-      r = r | (1<<i)
+  for _ in xrange(l):
+    r = 2*r + n%2
+    n /= 2
   return r
 
 assert bin(bitreverse(1, 4))=='0b1000'
